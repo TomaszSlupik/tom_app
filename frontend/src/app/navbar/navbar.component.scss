@@ -1,0 +1,125 @@
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .burger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: 0.3s;
+  
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+  
+  .burger-icon {
+    position: relative;
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+  
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background: #fff;
+      transition: 0.3s;
+    }
+  
+    &::before {
+      top: -8px;
+    }
+  
+    &::after {
+      top: 8px;
+    }
+  }
+  
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &.open {
+      transform: translateX(0);
+    }
+  
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+  
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        transition: 0.3s;
+        position: relative;
+  
+        &:hover {
+          color: #4A90E2;
+        }
+  
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -5px;
+          width: 0;
+          height: 2px;
+          background: #4A90E2;
+          transition: 0.3s;
+          transform: translateX(-50%);
+        }
+  
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  .open nav {
+    opacity: 1;
+  }
+  
+  body.open .burger-icon {
+    background: transparent;
+  
+    &::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+  
+    &::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+  }
+  

@@ -1,0 +1,12 @@
+<button class="burger" (click)="toggleMenu()">
+    <span class="burger-icon"></span>
+  </button>
+  <div class="menu" [class.open]="menuOpen">
+    <nav>
+      <a href="#" style="animation-delay: 0.2s">Home</a>
+      <a href="#" style="animation-delay: 0.3s">O mnie</a>
+      <a href="#" style="animation-delay: 0.4s">Portfolio</a>
+      <a href="#" style="animation-delay: 0.5s">Kontakt</a>
+    </nav>
+  </div>
+  
