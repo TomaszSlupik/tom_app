@@ -1,0 +1,76 @@
+.experience {
+    position: relative;
+    width: 100vw;
+    background-color: #fff;
+    min-height: 400px;
+    text-align: center;
+    padding-top: 50px;
+    overflow: hidden; /* Zapobiega wychodzeniu fal poza sekcję */
+}
+
+.timeline {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+  }
+  
+  .timeline-item {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .timeline-content {
+    background: #003228;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .timeline-content:hover {
+    transform: scale(1.05);
+  }
+  
+  .timeline-content.left {
+    text-align: right;
+    margin-right: auto;
+  }
+  
+  .timeline-content.right {
+    text-align: left;
+    margin-left: auto;
+  }
+  
+  /* Oś czasu */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #00e6b3;
+    transform: translateX(-50%);
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-content {
+      width: 90%;
+      text-align: center;
+    }
+  
+    .timeline::before {
+      left: 20px;
+    }
+  
+    .timeline-content.left,
+    .timeline-content.right {
+      margin: 0 auto;
+    }
+  }
+  
