@@ -1,0 +1,123 @@
+.aboutus {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.aboutus-image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .aboutus-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // animation: kenburns-top-right 8s infinite alternate ease-in-out;
+    animation: kenburns-top-right 8s ease-in-out forwards;
+  }
+
+
+@keyframes kenburns-top-right {
+    0% {
+      transform: scale(1) translate(0, 0);
+      transform-origin: 84% 16%;
+    }
+    100% {
+      transform: scale(1.25) translate(20px, -15px);
+      transform-origin: right top;
+    }
+  }
+
+
+.aboutus-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    max-height: 550px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px; 
+      }
+    
+      &::-webkit-scrollbar-track {
+        background: var(--scroll-track); 
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        background: var(--overlay-bg);
+        border-radius: 10px; 
+      }
+    
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--overlay-bg)
+      }
+}
+
+.aboutus-content h2 {
+    font-size: 2rem;
+    color: #003228;
+    margin-bottom: 15px;
+}
+
+
+.aboutus-content p {
+    font-size: 1rem;
+    color: #222;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes kenburns-top-right {
+    0% {
+        transform: scale(1) translate(0, 0);
+        transform-origin: 84% 16%;
+    }
+    100% {
+        transform: scale(1.25) translate(20px, -15px);
+        transform-origin: right top;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .aboutus-content {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .aboutus-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .aboutus-content p {
+        font-size: 0.9rem;
+    }
+}
