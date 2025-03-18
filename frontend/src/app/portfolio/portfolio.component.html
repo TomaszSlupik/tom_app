@@ -1,0 +1,18 @@
+<div class="portfolio">
+  <h2 id="portfolio" class="portfolio-title">Portfolio</h2>
+  <div class="portfolio-timeline">
+    <div class="portfolio-item" *ngFor="let item of portfolioItems">
+      <div class="portfolio-image">
+        <img [src]="item.image" [alt]="item.title">
+      </div>
+      <div class="portfolio-content">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="tech-stack">
+          <img *ngFor="let tech of item.techStack" [src]="tech.icon" [alt]="tech.name" [title]="tech.name">
+        </div>
+        <button mat-button (click)="openDialog(item)">Czytaj więcej</button>
+      </div>
+    </div>
+  </div>
+</div>
