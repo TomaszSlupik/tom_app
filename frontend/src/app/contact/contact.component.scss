@@ -1,0 +1,132 @@
+.contact {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 60px 20px;
+    text-align: center;
+    background: #002922;
+    color: #fff;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: #00e6b3;
+}
+
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.contact-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
+}
+
+.contact-info p {
+    font-size: 1rem;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info a {
+    color: #00e6b3;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-info a:hover {
+    color: #00ffcc;
+}
+
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #00e6b3;
+    outline: none;
+}
+
+
+.contact-button {
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #002922;
+    background: #00e6b3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.contact-button:hover {
+    background: #00ffcc;
+}
+
+
+@media (min-width: 768px) {
+    .contact-container {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 50%;
+    }
+}
