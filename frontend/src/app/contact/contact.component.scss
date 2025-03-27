@@ -117,6 +117,13 @@
     background: #00ffcc;
 }
 
+textarea {
+    min-height: 50px;
+    min-width: 240px;
+    max-width: 370px;
+    max-height: 400px;
+    overflow: auto;
+}
 
 @media (min-width: 768px) {
     .contact-container {
@@ -130,3 +137,4 @@
         width: 50%;
     }
 }
+
