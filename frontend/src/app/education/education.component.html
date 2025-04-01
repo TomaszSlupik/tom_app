@@ -1,0 +1,31 @@
+<div class="education-grid-page">
+  <h2 class="education-title">Wykształcenie</h2>
+  <div class="education-grid"
+  [class.card-hovered]="hoveredIndex !== null">
+    <div class="education-card"
+         *ngFor="let item of educationItems; let i = index"
+         [class.show]="visibleCards[i]"
+         [class.expanded]="expandedCard === i"
+         [class.dimmed]="hoveredIndex !== null && hoveredIndex !== i"
+         (mouseenter)="hoveredIndex = i"
+         (mouseleave)="hoveredIndex = null"
+         #educationCard>
+         
+      <div class="card-inner">
+        <h3>{{ item.title }}</h3>
+        <span class="institution">{{ item.institution }}</span>
+        <span class="date">{{ item.date }}</span>
+
+
+        <div class="pulse-arrow" (click)="toggleCard(i, $event)">
+          <span></span>
+        </div>
+
+        <div class="description-wrapper" [class.show]="expandedCard === i">
+          <p class="description">{{ item.description }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
