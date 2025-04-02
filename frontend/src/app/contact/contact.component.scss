@@ -35,6 +35,11 @@
     box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
 }
 
+.contact-info-img {
+    width: 20px;
+    height: 20px;
+}
+
 .contact-info p {
     font-size: 1rem;
     margin: 10px 0;
@@ -124,6 +129,37 @@ textarea {
     max-height: 400px;
     overflow: auto;
 }
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    font-size: 1rem;
+    color: #eee;
+  }
+  
+  .info-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .info-item:hover .info-icon {
+    transform: scale(1.1);
+  }
+  
+  .contact-info a {
+    color: #00e6b3;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .contact-info a:hover {
+    color: #00ffcc;
+  }
+  
 
 @media (min-width: 768px) {
     .contact-container {
