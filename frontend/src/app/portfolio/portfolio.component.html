@@ -1,17 +1,28 @@
 <div class="portfolio">
   <h2 id="portfolio" class="portfolio-title">Portfolio</h2>
   <div class="portfolio-timeline">
-    <div class="portfolio-item" *ngFor="let item of portfolioItems">
+    <div class="portfolio-item" 
+    [class.active]="zoomedImage === item.image"
+    *ngFor="let item of portfolioItems">
       <div class="portfolio-image">
-        <img [src]="item.image" [alt]="item.title">
+        <img
+          [src]="item.image"
+          [alt]="item.title"
+          [class.rotating]="rotatingImage === item.image"
+          [class.zoomed]="zoomedImage === item.image"
+          (click)="startAnimation(item.image)"
+          (mouseleave)="resetZoom(item.image)"
+        />
       </div>
+          
       <div class="portfolio-content">
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
         <div class="tech-stack">
           <img *ngFor="let tech of item.techStack" [src]="tech.icon" [alt]="tech.name" [title]="tech.name">
         </div>
-        <button mat-button (click)="openDialog(item)">Czytaj więcej</button>
+        <app-custom-button text="Czytaj więcej"></app-custom-button>
+        <!-- <app-custom-button text="Czytaj więcej" (onClick)="openDialog(item)"></app-custom-button> -->
       </div>
     </div>
   </div>

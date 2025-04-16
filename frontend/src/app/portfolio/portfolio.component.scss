@@ -17,10 +17,13 @@
     max-width: 900px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; 
     gap: 30px;
   }
-  
+
   .portfolio-item {
     display: flex;
     flex-direction: column;
@@ -30,7 +33,36 @@
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
+    width: 300px; 
+    height: 600px; 
+    overflow: auto; 
+    position: relative; 
+    z-index: 1;
   }
+
+  
+.portfolio-item.active {
+  overflow: visible; 
+  z-index: 100;
+}
+
+  .portfolio-item::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .portfolio-item::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  .portfolio-item::-webkit-scrollbar-thumb {
+    background: rgba(0, 230, 179, 0.3);
+    border-radius: 6px;
+  }
+  
+  .portfolio-item::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 230, 179, 0.5);
+  }
+  
   
   .portfolio-item:hover {
     transform: scale(1.05);
@@ -39,7 +71,7 @@
   
   .portfolio-image img {
     width: 100%;
-    max-height: 200px;
+    height: 180px; 
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -47,11 +79,17 @@
   
   .portfolio-content {
     text-align: center;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
   }
+  
   
   .portfolio-content h3 {
     font-size: 1.8rem;
     color: #00e6b3;
+    margin-bottom: 10px;
   }
   
   .company {
@@ -69,6 +107,9 @@
   .portfolio-content p {
     font-size: 1rem;
     line-height: 1.6;
+    flex-grow: 1; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
   }
   
   .tech-stack {
@@ -76,6 +117,8 @@
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
+    margin-bottom: 5px;
+    flex-wrap: wrap; 
   }
   
   .tech-stack img {
@@ -87,7 +130,51 @@
   .tech-stack img:hover {
     transform: scale(1.2);
   }
+  .portfolio-image {
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+  }
   
+  .portfolio-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+    cursor: grab;
+    z-index: 0;
+    position: relative;
+  }
+  
+  /* Obrót */
+  .portfolio-image img.rotating {
+    animation: rotate-only 0.6s ease-out forwards;
+  }
+  
+  /* Powiększenie */
+  .portfolio-image img.zoomed {
+    transform: scale(2);
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 0 25px rgba(0, 230, 179, 0.5);
+    cursor: zoom-out;
+  }
+  
+  
+
+  @keyframes rotate-only {
+    0% {
+      transform: rotate(0) scale(1);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+      z-index: 10;
+    }
+  }
+  
+  
+
   @media (max-width: 768px) {
     .portfolio-title {
       font-size: 2rem;
@@ -104,6 +191,12 @@
     
     .portfolio-item {
       width: 300px;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    .portfolio-timeline {
+      max-width: 1290px;
     }
   }
   
