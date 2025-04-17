@@ -161,6 +161,19 @@ textarea {
   }
   
 
+  .input-group input.invalid,
+  .input-group textarea.invalid {
+    border: 2px solid #ff4d4d;
+    background: rgba(255, 77, 77, 0.05);
+  }
+  
+  .error {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+  
+
 @media (min-width: 768px) {
     .contact-container {
         flex-direction: row;

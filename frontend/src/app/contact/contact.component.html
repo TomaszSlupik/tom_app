@@ -27,18 +27,59 @@
           </div>
           
 
-        <!-- Prawa strona - formularz kontaktowy -->
-        <form class="contact-form">
-            <div class="input-group">
-                <label for="name">Imię i nazwisko</label>
-                <input type="text" id="name" name="name" placeholder="Wpisz swoje imię i nazwisko" required>
-            </div>
-            <div class="input-group">
-                <label for="message">Treść wiadomości</label>
-                <textarea id="message" name="message" placeholder="Wpisz swoją wiadomość" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="contact-button">Wyślij wiadomość</button>
-        </form>
+    <!-- Prawa strona - formularz kontaktowy -->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+      <!-- Imię i nazwisko -->
+      <div class="input-group">
+        <label for="name">Imię i nazwisko</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          [class.invalid]="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || formSubmitted)"
+          placeholder="Wpisz swoje imię i nazwisko"
+        />
+        <div class="error" *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || formSubmitted)">
+          Imię jest wymagane.
+        </div>
+      </div>
 
+      <!-- Email -->
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          [class.invalid]="contactForm.get('email')?.invalid && (formSubmitted || contactForm.get('email')?.touched)"
+          placeholder="Wpisz swój adres e-mail"
+        />
+        <div class="error"
+          *ngIf="contactForm.get('email')?.invalid && (formSubmitted || contactForm.get('email')?.touched)">
+          Proszę podać poprawny adres e-mail.
+        </div>
+      </div>
+      
+
+      <!-- Wiadomość -->
+      <div class="input-group">
+        <label for="message">Treść wiadomości</label>
+        <textarea
+          id="message"
+          formControlName="message"
+          rows="4"
+          placeholder="Wpisz swoją wiadomość"
+          [class.invalid]="contactForm.get('message')?.invalid && (contactForm.get('message')?.touched || formSubmitted)"
+        ></textarea>
+        <div class="error" *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.touched || formSubmitted)">
+          Wiadomość jest wymagana.
+        </div>
+      </div>
+
+      <button class="contact-button" type="submit">
+        Wyślij wiadomość
+      </button>
+    </form>
+        
     </div>
 </section>
