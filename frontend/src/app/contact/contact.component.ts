@@ -24,14 +24,39 @@ export class ContactComponent implements OnInit {
   onSubmit(): void {
     console.log('Klik'); 
     this.formSubmitted = true;
-    // wszystkie pola jako "touched", aby wymusić wyświetlenie błędów
     this.contactForm.markAllAsTouched();
-
+  
     if (this.contactForm.invalid) {
-      // Formularz zawiera błędy – nie wysyłam dalej
+      console.warn('Formularz niepoprawny – nie wysyłam!');
       return;
     }
 
-    this.router.navigate(['/message-sent']);
+    const { name, email, message } = this.contactForm.value;
+  
+    const form = document.createElement('form');
+    form.action = 'https://formsubmit.co/slupiktomasz@gmail.com';
+    form.method = 'POST';
+    form.style.display = 'none';
+  
+    const inputs = [
+      { name: 'name', value: name },
+      { name: 'email', value: email },
+      { name: 'message', value: message },
+      { name: '_captcha', value: 'false' },
+      { name: '_next', value: 'https://slupikprogrammer.pl/message-sent' }
+    ];
+  
+    inputs.forEach(({ name, value }) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      form.appendChild(input);
+    });
+  
+    document.body.appendChild(form);
+    form.submit();
+    form.remove();
   }
+  
 }

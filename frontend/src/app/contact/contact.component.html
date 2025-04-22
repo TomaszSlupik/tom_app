@@ -28,13 +28,15 @@
           
 
     <!-- Prawa strona - formularz kontaktowy -->
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate
+    >
       <!-- Imię i nazwisko -->
       <div class="input-group">
         <label for="name">Imię i nazwisko</label>
         <input
           id="name"
           type="text"
+          name="name"
           formControlName="name"
           [class.invalid]="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || formSubmitted)"
           placeholder="Wpisz swoje imię i nazwisko"
@@ -50,6 +52,7 @@
         <input
           id="email"
           type="email"
+          name="email"
           formControlName="email"
           [class.invalid]="contactForm.get('email')?.invalid && (formSubmitted || contactForm.get('email')?.touched)"
           placeholder="Wpisz swój adres e-mail"
@@ -67,6 +70,7 @@
         <textarea
           id="message"
           formControlName="message"
+          name="message"
           rows="4"
           placeholder="Wpisz swoją wiadomość"
           [class.invalid]="contactForm.get('message')?.invalid && (contactForm.get('message')?.touched || formSubmitted)"
