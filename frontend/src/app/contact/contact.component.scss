@@ -187,3 +187,8 @@ textarea {
     }
 }
 
+@media (max-width: 1900px) {
+    textarea {
+        max-height: 225px;
+    }
+}

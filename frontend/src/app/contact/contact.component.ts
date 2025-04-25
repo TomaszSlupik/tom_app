@@ -43,7 +43,7 @@ export class ContactComponent implements OnInit {
       { name: 'email', value: email },
       { name: 'message', value: message },
       { name: '_captcha', value: 'false' },
-      { name: '_next', value: 'https://slupikprogrammer.pl/message-sent' }
+      { name: '_next', value: 'https://slupikprogrammer.pl/#/message-sent' }
     ];
   
     inputs.forEach(({ name, value }) => {
