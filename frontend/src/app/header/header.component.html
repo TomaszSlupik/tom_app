@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="background-animation"></div>
+
+    <div class="squares-container">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+
+    <div class="content">
+        <div class="image-container">
+            <img src="assets/img/my_photo.JPG" alt="Tomasz Słupik">
+        </div>
+        <h1 class="animated-header">
+            <ng-container *ngFor="let char of characters; let i = index">
+                <span *ngIf="char !== '\n'" class="letter" [style.animationDelay]="(i * 0.03) + 's'">
+                  {{ char }}
+                </span>
+                <span *ngIf="char === '\n'" class="line-break"></span>
+              </ng-container>
+          </h1>          
+    </div>
+</div>
