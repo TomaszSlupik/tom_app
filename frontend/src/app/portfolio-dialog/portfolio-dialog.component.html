@@ -1,10 +1,33 @@
 <div class="dialog-container">
-    <h2>{{ data.title }}</h2>
-    <img [src]="data.image" alt="{{ data.title }}">
-    <p>{{ data.description }}</p>
-    <div class="tech-stack">
-      <img *ngFor="let tech of data.techStack" [src]="tech.icon" [alt]="tech.name" [title]="tech.name">
+  <h2 class="dialog-title">{{ data.title }}</h2>
+
+  <!-- Karuzela zdjęć -->
+  <div class="carousel">
+    <img 
+      [src]="data.images[currentImageIndex]" 
+      alt="{{ data.title }}" 
+      class="carousel-image"
+    />
+    <div class="carousel-controls">
+      <button (click)="prevImage()">‹</button>
+      <span>{{ currentImageIndex + 1 }} / {{ data.images.length }}</span>
+      <button (click)="nextImage()">›</button>
     </div>
-    <button mat-button (click)="closeDialog()">Zamknij</button>
   </div>
-  
+
+  <!-- Opis -->
+  <p class="dialog-description">{{ data.mainDescription }}</p>
+
+  <!-- Tech stack -->
+  <div class="tech-stack">
+    <img 
+      *ngFor="let tech of data.techStack" 
+      [src]="tech.icon" 
+      [alt]="tech.name" 
+      [title]="tech.name"
+    />
+  </div>
+
+  <!-- <button mat-button (click)="closeDialog()">Zamknij</button> -->
+  <app-custom-button text="Zamknij" (click)="closeDialog()">Zamknij</app-custom-button>
+</div>
