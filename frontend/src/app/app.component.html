@@ -2,7 +2,7 @@
 <app-navbar></app-navbar>  
 <ng-container *ngIf="isHomePage()">
     <app-header *ngIf="!loading" [triggerTyping]="true"></app-header>
-    <app-experience *ngIf="!loading"></app-experience>
+    <app-experience *ngIf="!loading" [animate]="true"></app-experience>
     <app-portfolio *ngIf="!loading"></app-portfolio>
   </ng-container>
 <router-outlet></router-outlet>
