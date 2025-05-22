@@ -4,9 +4,11 @@
   <div class="menu" [class.open]="menuOpen">
     <nav>
       <a href="#" style="animation-delay: 0.2s">Home</a>
-      <a href="#" style="animation-delay: 0.3s">O mnie</a>
-      <a href="#" style="animation-delay: 0.4s">Portfolio</a>
-      <a href="#" style="animation-delay: 0.5s">Kontakt</a>
+      <a routerLink="/o_mnie" style="animation-delay: 0.3s" (click)="closeMenu()">O mnie</a>
+      <!-- <a href="#" (click)="scrollToSection('portfolio')" style="animation-delay: 0.4s">Portfolio</a> -->
+      <a routerLink="/umiejetnosci" style="animation-delay: 0.5s" (click)="closeMenu()">Umiejętności</a>
+      <a routerLink="/wyksztalcenie" style="animation-delay: 0.6s" (click)="closeMenu()">Wykształcenie</a>
+      <a routerLink="/kontakt" style="animation-delay: 0.7s" (click)="closeMenu()">Kontakt</a>
     </nav>
   </div>
   
