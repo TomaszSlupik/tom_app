@@ -15,6 +15,9 @@ import { PortfolioDialogComponent } from './portfolio-dialog/portfolio-dialog.co
 import { CustomButtonComponent } from './shared/custom-button/custom-button.component';
 import { EducationComponent } from './education/education.component';
 import { PreloaderComponent } from './preloader/preloader.component';
+import { MessageSentComponent } from './message-sent/message-sent.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,16 +32,21 @@ import { PreloaderComponent } from './preloader/preloader.component';
     PortfolioDialogComponent,
     CustomButtonComponent,
     EducationComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    MessageSentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
