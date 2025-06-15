@@ -7,12 +7,24 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./portfolio-dialog.component.scss']
 })
 export class PortfolioDialogComponent {
+  currentImageIndex = 0;
+
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any, 
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<PortfolioDialogComponent>
   ) {}
 
-  closeDialog() {
+  nextImage(): void {
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.data.images.length;
+  }
+
+  prevImage(): void {
+    this.currentImageIndex =
+      (this.currentImageIndex - 1 + this.data.images.length) % this.data.images.length;
+  }
+
+  closeDialog(): void {
     this.dialogRef.close();
   }
+  
 }
